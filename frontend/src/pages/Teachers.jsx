@@ -71,11 +71,20 @@ function Teachers() {
   async function fetchCourses() {
     try {
       const res = await API.get("/courses");
-      setCourses(Array.isArray(res.data) ? res.data : []);
+       // Try to detect correct structure
+      const coursesData = Array.isArray(res.data)
+        ? res.data
+        : Array.isArray(res.data.courses)
+        ? res.data.courses
+        : Array.isArray(res.data.data)
+        ? res.data.data
+        : [];
+
+      setCourses(coursesData);
     } catch (err) {
       console.error("Error fetching courses:", err);
       toast.error("Error fetching courses");
-      setCourses([]);
+      //setCourses([]);
     }
   }
 

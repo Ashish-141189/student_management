@@ -200,9 +200,9 @@ function Communication() {
         <Button variant="contained" onClick={() => setOpenGroupModal(true)}>
           Send Group Email
         </Button>
-        <Button variant="contained" onClick={() => setOpenCustomGroupModal(true)}>
+        {/* <Button variant="contained" onClick={() => setOpenCustomGroupModal(true)}>
           Create Custom Group Email
-        </Button>
+        </Button> */}
       </Box>
 
       {/* ====== Parent Email Modal ====== */}
@@ -253,7 +253,7 @@ function Communication() {
               >
                 <MenuItem value="">-- Select Class --</MenuItem>
                 {classes.map((cls) => (
-                  <MenuItem key={cls._id} value={cls._id}>{cls.name}</MenuItem>
+                  <MenuItem key={cls} value={cls}>{cls}</MenuItem>
                 ))}
               </Select>
             </FormControl>
@@ -298,7 +298,7 @@ function Communication() {
             >
               <MenuItem value="">-- Select Class --</MenuItem>
               {classes.map((cls) => (
-                <MenuItem key={cls._id} value={cls._id}>{cls.name}</MenuItem>
+                <MenuItem key={cls} value={cls}>{cls}</MenuItem>
               ))}
             </Select>
           </FormControl>
